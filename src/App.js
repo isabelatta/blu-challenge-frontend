@@ -1,24 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import MainButton from './MainButton';
+import UserCard from './UserCard';
+import PageTop from './PageTop';
+import MedicalAnalysis from './MedicalAnalysis';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
 
-function App() {
+
+const App = () => {
+   
+  const nameButton = "Encerrar Consulta"
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid >
+          <Grid xs={12}>
+            <PageTop />
+          </Grid>
+         <div className="user-section">
+          <Grid container spacing={2}>
+          <Grid xs={10}> 
+             <UserCard />
+            </Grid>
+            <Grid xs={2} display="flex" justifyContent="center" alignItems="center" >
+              <MainButton className="main-button" nameButton={nameButton} />
+            </Grid>
+          </Grid>
+         </div>
+          <MedicalAnalysis />
+        </Grid>
+
+        </Box>
+      </div>
+    
   );
 }
 
